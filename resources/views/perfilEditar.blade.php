@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -9,18 +12,9 @@
 
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script type="module" src="{{ asset('js/perfilEditar.js') }}" defer></script>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-            crossorigin=""></script>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/perfilEditar.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""/>
 
 </head>
 
@@ -48,34 +42,27 @@
                         <div class="card-body">
                             <div class="row mb-3">
                                 <div class="col-sm-3">
+                                    <h6 class="mb-0">Correo</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input  readonly type="text" class="form-control" value="john@example.com">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-3">
                                     <h6 class="mb-0">Nombre completo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input type="text" class="form-control" value="John Doe">
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Correo</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="john@example.com">
-                                </div>
-                            </div>
+
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Teléfono primario</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input type="text" class="form-control" value="(239) 816-9029">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Teléfono secundario</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="(320) 380-4539">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -98,8 +85,6 @@
             </div>
         </div>
 
-        <div id="mapid"></div>
-
         <div class="container">
             <div class="timetable-img text-center">
                 <img src="img/content/timetable.png" alt="">
@@ -108,14 +93,14 @@
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr class="bg-light-green">
-                            <th class="text-uppercase">Horas
+                            <th class="text-uppercase">Time
                             </th>
-                            <th class="text-uppercase">Lunes</th>
-                            <th class="text-uppercase">Martes</th>
-                            <th class="text-uppercase">Miercoles</th>
-                            <th class="text-uppercase">Jueves</th>
-                            <th class="text-uppercase">Viernes</th>
-                            <th class="text-uppercase">Sábado</th>
+                            <th class="text-uppercase">Monday</th>
+                            <th class="text-uppercase">Tuesday</th>
+                            <th class="text-uppercase">Wednesday</th>
+                            <th class="text-uppercase">Thursday</th>
+                            <th class="text-uppercase">Friday</th>
+                            <th class="text-uppercase">Saturday</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -481,3 +466,4 @@
 </body>
 
 </html>
+@endsection
