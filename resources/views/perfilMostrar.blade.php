@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <!DOCTYPE html>
+<?php
+    
+?>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -57,13 +60,7 @@
                                 <h6 class="mb-0">Correo</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <?php
-                                $users = DB::select('select * from users where id=1');
 
-                                foreach ($users as $user) {
-                                    echo $user->email;
-                                }
-                                ?>
                             </div>
                         </div>
                         <hr>
@@ -73,8 +70,6 @@
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <?php
-                                $users = DB::select('select * from users where id=1');
-
                                 foreach ($users as $user) {
                                     echo $user->name;
                                 }
@@ -89,8 +84,6 @@
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <?php
-                                $users = DB::select('select * from users where id=1');
-
                                 foreach ($users as $user) {
                                     echo $user->phone;
                                 }
@@ -104,8 +97,6 @@
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <?php
-                                $users = DB::select('select * from users where id=1');
-
                                 foreach ($users as $user) {
                                     echo $user->location;
                                 }
