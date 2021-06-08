@@ -28,7 +28,7 @@
                         <div class="form-group row">
                             <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
 
-                            <div class="col-md-6 row">
+                            <div class="col-md-6 row align-content-center">
                                     <label class="col-4">Alumno</label>
                                     <input class="col-2" type="radio" id="rol1" name="rol" value="alumno" />
                                     <label class="col-4">Profesor</label>
