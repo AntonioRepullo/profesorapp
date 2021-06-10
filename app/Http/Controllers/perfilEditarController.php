@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-class perfilMostrarController extends Controller
+class perfilEditarController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -10,7 +10,7 @@ class perfilMostrarController extends Controller
      */
     public function index()
     {
-        return view('perfilMostrar');
+        return view('perfilEditar');
     }
 }
 ?>

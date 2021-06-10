@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<?php
+$idUsuario = $_GET['user'];
+$users = DB::select('select * from users where id=' . $idUsuario);
+$user = $users[0];
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -39,7 +44,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="card">
-                        <div class="card-body">
+                        <form class="card-body">
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Correo</h6>
@@ -53,7 +58,7 @@
                                     <h6 class="mb-0">Nombre completo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="John Doe">
+                                    <input type="text" class="form-control" name="name" value="<?php echo $user->name; ?>">
                                 </div>
                             </div>
 
@@ -76,10 +81,10 @@
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="button" class="btn btn-primary px-4" value="Guardar">
+                                    <input type="submit" class="btn btn-primary px-4" value="Guardar">
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

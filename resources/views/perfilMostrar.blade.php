@@ -2,7 +2,9 @@
 
 @section('content')
 <?php
-    
+$idUsuario = $_GET['user'];
+$users = DB::select('select * from users where id=' . $idUsuario);
+$user = $users[0];
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -60,7 +62,9 @@
                                 <h6 class="mb-0">Correo</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-
+                                <?php
+                                echo $user->email;
+                                ?>
                             </div>
                         </div>
                         <hr>
@@ -69,11 +73,9 @@
                                 <h6 class="mb-0">Nombre completo</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <?php
-                                foreach ($users as $user) {
-                                    echo $user->name;
-                                }
-                                ?>
+                            <?php
+                            echo $user->name;
+                            ?>
                             </div>
                         </div>
                         <hr>
@@ -84,9 +86,7 @@
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <?php
-                                foreach ($users as $user) {
-                                    echo $user->phone;
-                                }
+                                echo $user->phone;
                                 ?>
                             </div>
                         </div>
@@ -97,9 +97,7 @@
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <?php
-                                foreach ($users as $user) {
-                                    echo $user->location;
-                                }
+                                echo $user->location;
                                 ?>
                             </div>
                         </div>

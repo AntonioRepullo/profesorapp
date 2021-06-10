@@ -15,17 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-    
+
 });
 
-Route::get('/perfil', function(){
-    return view('perfilMostrar');
-});
-
-Route::get('/perfilEditar', function(){
-    return view('perfilEditar');
-});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/perfil', [App\Http\Controllers\perfilMostrarController::class, 'index'])->name('perfilMostrar');
+Route::get('/perfilEditar', [App\Http\Controllers\perfilEditarController::class, 'index'])->name('perfilEditar');
