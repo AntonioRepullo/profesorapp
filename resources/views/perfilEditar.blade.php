@@ -5,6 +5,9 @@
 $idUsuario = $_GET['user'];
 $users = DB::select('select * from users where id=' . $idUsuario);
 $user = $users[0];
+$mydate=getdate(date("U"));
+
+
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -50,7 +53,7 @@ $user = $users[0];
                                     <h6 class="mb-0">Correo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input  readonly type="text" class="form-control" value="john@example.com">
+                                    <input  readonly type="text" class="form-control" value="<?php echo $user->email?>">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -67,7 +70,7 @@ $user = $users[0];
                                     <h6 class="mb-0">Teléfono primario</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="(239) 816-9029">
+                                    <input type="text" class="form-control" name="phone" value="<?php echo $user->phone; ?>">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -75,7 +78,7 @@ $user = $users[0];
                                     <h6 class="mb-0">Dirección</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="Bay Area, San Francisco, CA">
+                                    <input type="text" class="form-control" name="location" value="<?php echo $user->location;?>">
                                 </div>
                             </div>
                             <div class="row">
@@ -98,6 +101,9 @@ $user = $users[0];
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr class="bg-light-green">
+                            <?php
+                            echo "$mydate[wday] $mydate[month] $mydate[mday] $mydate[year]";
+                            ?>
                             <th class="text-uppercase">Time
                             </th>
                             <th class="text-uppercase">Monday</th>
@@ -109,360 +115,11 @@ $user = $users[0];
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="align-middle">09:00am</td>
-                            <td>
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16 xs-font-size13">Dance</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                            </td>
-
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            </td>
-                            <td>
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">10:00am</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            </td>
-                            <td class="bg-light-green">
-
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            </td>
-                            <td class="bg-light-green">
-
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">11:00am</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Break</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">12:00pm</td>
-                            <td class="bg-light-green">
-
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Art</span>
-                            </td>
-                            <td>
-                                <span class="bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Dance</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            </td>
-                            <td class="bg-light-green">
-
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">01:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            </td>
-                            <td class="bg-light-green">
-
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">English</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Yoga</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Music</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">02:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">03:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">04:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">05:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">06:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">07:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">08:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">09:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">10:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">11:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="align-middle">12:00pm</td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                            <td>
-                                <span class="bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13">Libre</span>
-                            </td>
-                        </tr>
-
-
+                        <?php
+                        for (i=0; i<3; i++){
+                            
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

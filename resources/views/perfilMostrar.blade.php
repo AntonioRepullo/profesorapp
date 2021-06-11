@@ -43,9 +43,9 @@ $user = $users[0];
                     <div class="rate">
                         <input type="radio" id="star5" name="rate" value="5"/>
                         <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4"/>
+                        <input type="radio" id="star4" name="rate" value="4" checked/>
                         <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3"/>
+                        <input type="radio" id="star3" name="rate" value="3" />
                         <label for="star3" title="text">3 stars</label>
                         <input type="radio" id="star2" name="rate" value="2"/>
                         <label for="star2" title="text">2 stars</label>
@@ -104,7 +104,7 @@ $user = $users[0];
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                <a class="btn btn-info " target="__blank" href="perfilEditar">Editar</a>
+                                <a class="btn btn-info " target="__blank" href="perfilEditar/?user=<?php echo $idUsuario?>">Editar</a>
                             </div>
                         </div>
                     </div>
