@@ -6,6 +6,10 @@ $idUsuario = $_GET['user'];
 $users = DB::select('select * from users where id=' . $idUsuario);
 $user = $users[0];
 $mydate=getdate(date("U"));
+$solicitudesPendientes=['3.3','4.4','5.5'];
+$solicitudesAceptadas=['1.1','2.2','4.1'];
+
+implode(", ",$solicitudesPendientes);
 
 
 ?>
@@ -20,6 +24,7 @@ $mydate=getdate(date("U"));
 
 
     <!-- Scripts -->
+    <script type="text/javascript" src="{{ URL::asset('js/perfilEditar.js') }}"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/perfilEditar.css') }}" rel="stylesheet">
@@ -98,7 +103,7 @@ $mydate=getdate(date("U"));
                 <img src="img/content/timetable.png" alt="">
             </div>
             <div class="table-responsive">
-                <table class="table table-bordered text-center">
+                <table class="table table-bordered text-center" id="myTable">
                     <thead>
                         <tr class="bg-light-green">
                             <?php
@@ -111,17 +116,38 @@ $mydate=getdate(date("U"));
                             <th class="text-uppercase">Wednesday</th>
                             <th class="text-uppercase">Thursday</th>
                             <th class="text-uppercase">Friday</th>
-                            <th class="text-uppercase">Saturday</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        for (i=0; i<3; i++){
-                            
+                    <?php
+                    for($a = 1; $a <= 6; $a++) {
+                        echo "<tr>";
+                        echo "<td>".$a.":00"."</td>";
+                        for($b = 1; $b <= 5; $b++) {
+                            $id=$a.".".$b;
+                            $Libre="<td id=\"$id\">
+                            <span class=\"bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Libre</span>
+                            </td>";
+                            $Ocupado="<td id=\"$id\">
+                            <span class=\"bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Ocupado</span>
+                            </td>";
+                            $Pendiente="<td id=\"$id\">
+                            <span class=\"bg-orange padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Pendiente</span>
+                            </td>";
+                            $salida=$Libre;
+                            foreach ($solicitudesAceptadas as $solicitud){
+                                if ($solicitud == $id){
+                                    $salida=$Ocupado;
+                                }
+                            }
+                            echo $salida;
                         }
-                        ?>
+                        echo "</tr>";
+                    }
+                    ?>
                     </tbody>
                 </table>
+                <input type = "button" onclick = "solicitar(<?php echo "[".implode(",",$solicitudesPendientes)."]" ;?>)" value = "Configurar">
             </div>
         </div>
 

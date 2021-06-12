@@ -1,10 +1,11 @@
-var axios= require(axios);
+function solicitar(id) {
+    var output = "<span class=\"bg-orange padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Pendiente</span>";
+    console.log(id);
+    for (i=0; i < id.length; i++){
+        document.getElementById(id[i]).innerHTML=output;
+    }
 
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    maxZoom: 25,
-    attribution: 'Datos del mapa de &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>, ' + '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' + 'Imágenes © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox/streets-v11'
-}).addTo(mymap);
-
+    /**
+     * document.getElementById(id).innerHTML=output)
+     */
+}
