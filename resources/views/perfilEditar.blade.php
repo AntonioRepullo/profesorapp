@@ -5,7 +5,7 @@
 $idUsuario = $_GET['user'];
 $users = DB::select('select * from users where id=' . $idUsuario);
 $user = $users[0];
-$mydate=getdate(date("U"));
+$mydate=getdate(date('U'));
 $solicitudesPendientes=['3.3','4.4','5.5'];
 $solicitudesAceptadas=['1.1','2.2','4.1'];
 
@@ -125,15 +125,9 @@ implode(", ",$solicitudesPendientes);
                         echo "<td>".$a.":00"."</td>";
                         for($b = 1; $b <= 5; $b++) {
                             $id=$a.".".$b;
-                            $Libre="<td id=\"$id\">
-                            <span class=\"bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Libre</span>
-                            </td>";
-                            $Ocupado="<td id=\"$id\">
-                            <span class=\"bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Ocupado</span>
-                            </td>";
-                            $Pendiente="<td id=\"$id\">
-                            <span class=\"bg-orange padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Pendiente</span>
-                            </td>";
+                            $Libre="<td id=\"$id\"> <span onclick =\"solicitarHora($id)\" class=\" btn bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Libre</span> </td>";
+                            $Ocupado="<td id=\"$id\"> <span class=\"bg-sky padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Ocupado</span> </td>";
+                            $Pendiente="<td id=\"$id\"> <span class=\"bg-orange padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Pendiente</span> </td>";
                             $salida=$Libre;
                             foreach ($solicitudesAceptadas as $solicitud){
                                 if ($solicitud == $id){
