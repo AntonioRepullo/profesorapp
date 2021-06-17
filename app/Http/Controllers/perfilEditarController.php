@@ -1,6 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+
 class perfilEditarController extends Controller
 {
     /**
@@ -10,7 +16,8 @@ class perfilEditarController extends Controller
      */
     public function index()
     {
-        return view('perfilEditar');
+        $requests = DB::table('request')->get();
+        return view('perfilEditar',['requests'=>$requests]);
     }
 }
 ?>
