@@ -12,6 +12,7 @@ $idTimeTable=$idTimeTable[0];
 $mydate = getdate(date('U'));
 $fecha = new DateTime();
 $fecha = $fecha->getTimestamp();
+$userLoged = auth()->user();
 ?>
     <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -122,8 +123,9 @@ $fecha = $fecha->getTimestamp();
                             <tr>
                                 <form method="get" action=\'delete\'>
                                     <td>'.$asignatura->nombre.' de nivel '.$asignatura->nivel.'
+                                        <input type=\'hidden\' value="'.$user->id.'" name=\'user\'>
                                         <input type=\'hidden\' value="'.$asignatura->idUserSubject.'" name=\'userSubjectId\'>
-                                        <button name="delete" type="submit" class="btn btn-danger" style="float: right;"> Eliminar </button></td>
+                                        <button  type="submit" class="btn btn-danger" style="float: right;"> Eliminar </button></td>
                                     </td>
                                 </form>
                             </tr>
@@ -132,9 +134,10 @@ $fecha = $fecha->getTimestamp();
 
                         echo '
                         <tr>
-                        <form method="get" action=\'insert\'>
+                        <form method="get" action=\'insertAsignatura\'>
                         <td>
                         <label for="asignaturas">Elige asignatura:</label>
+                        <input type=\'hidden\' value="'.$user->id.'" name=\'user\'>
                         <input type=\'hidden\' value="'.$user->id.'" name=\'idUserSubject\'>
                         <select id="idSubjectUser" name="idSubjectUser">';
                         foreach ($asignaturasTotales as $asignaturaTotal){
@@ -174,9 +177,10 @@ $fecha = $fecha->getTimestamp();
                             $hora=$valor[0];
                             echo '
                         <tr>
-                        <form method=\"get\" action=\'/delete\'>
+                        <form method=\"get\" action=\'/deleteRequest\'>
+                        <input type=\'hidden\' value="'.$user->id.'" name=\'user\'>
                         <input type=\'hidden\' value="'.$solicitudMostrar->id.'" name=\'requestId\'>
-                        <td>'.$alumno->name.':  '.$dia.' a las '.$hora.' <button name="delete" type="submit" class="btn btn-danger" style="float: right;"> Eliminar </button></td>
+                        <td>'.$alumno->name.':  '.$dia.' a las '.$hora.' <button type="submit" class="btn btn-danger" style="float: right;"> Eliminar </button></td>
                         </form>
                         </tr>
                         ';
@@ -213,12 +217,14 @@ $fecha = $fecha->getTimestamp();
                         <tr>
                         <td>'.$alumno->name.' el '.$dia.' a las '.$hora.'
                         <form method=\"get\" action=\'/update\'>
+                        <input type=\'hidden\' value="'.$user->id.'" name=\'user\'>
                         <input type=\'hidden\' value="'.$solicitudMostrar->id.'" name=\'requestId\'>
                         <button name="update" type="submit" class="btn btn-primary" style="float: right"> Aceptar </button>
                         </form>
-                        <form method=\"get\" action=\'/delete\'>
+                        <form method=\"get\" action=\'/deleteRequest\'>
+                        <input type=\'hidden\' value="'.$user->id.'" name=\'user\'>
                         <input type=\'hidden\' value="'.$solicitudMostrar->id.'" name=\'requestId\'>
-                        <button name="delete" type="submit" class="btn btn-danger" style="float: right;"> Eliminar </button></td>
+                        <button  type="submit" class="btn btn-danger" style="float: right;"> Eliminar </button></td>
                         </form>
                         </tr>
                         ';
@@ -275,12 +281,13 @@ $fecha = $fecha->getTimestamp();
                         $Libre = "
                             <td id=\"$id\">
                             <form method=\"get\" action='/insert'>
-                            <input type='hidden' value=$user->id name='usrId'>
+                            <input type='hidden' value=$user->id name='user'>
+                            <input type='hidden' value=$userLoged->id name='studentUser'>
                             <input type='hidden' value=$idTimeTable->id name='idTimeTable''>
                             <input type='hidden' value='pendiente' name='pendiente'>
                             <input type='hidden' value=$id name='id'>
                             <input type='hidden' value=$fecha name='fecha'>
-                            <button name=\"insert\" type=\"submit\" class=\" btn bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Libre
+                            <button  type=\"submit\" class=\" btn bg-green padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13\">Libre
                             </button>
                             </form>
                             </td>";

@@ -1,42 +1,83 @@
-*{
-    margin: 0;
-    padding: 0;
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
 }
-.rating{
-    align-items: center;
+body{
+    margin-top:20px;
 }
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
+.table tbody{
+    background-color: #fff;
 }
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 2px;
 }
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
 }
-.rate:not(:checked) > label:before {
-    content: '★ ';
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
 }
-.rate > input:checked ~ label {
-    color: #ffc700;
+
+.bg-orange.box-shadow {
+    box-shadow: 0px 5px 0px 0px #af4305
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;
+.bg-sky.box-shadow {
+    box-shadow: 0px 5px 0px 0px #00a2a7
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
+
+.bg-green.box-shadow {
+    box-shadow: 0px 5px 0px 0px #4ca520
+}
+
+.bg-orange {
+    background-color: #e95601
+}
+
+.bg-sky {
+    background-color: #02c2c7
+}
+
+.bg-green {
+    background-color: #5bbd2a
+}
+
+.padding-15px-lr {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.padding-5px-tb {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.margin-10px-bottom {
+    margin-bottom: 10px;
+}
+.border-radius-5 {
+    border-radius: 5px;
+}
+
+.margin-10px-top {
+    margin-top: 10px;
+}
+.font-size14 {
+    font-size: 14px;
+}
+
+.text-light-gray {
+    color: #d6d5d5;
+}
+.font-size13 {
+    font-size: 13px;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
 }
